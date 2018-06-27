@@ -12,6 +12,7 @@ export class FavoritesPage implements OnInit {
 
   favorites: Dish[];
   errMess: string;
+	reservation: FormGroup;
 
   constructor(
 		public navCtrl: NavController, 
