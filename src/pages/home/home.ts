@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { NavController, ActionSheetController } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { Dish } from '../../shared/dish';
 import { DishProvider } from '../../providers/dish/dish';
 import { Promotion } from '../../shared/promotion';
@@ -24,8 +24,7 @@ export class HomePage implements OnInit {
     private dishservice: DishProvider,
     private promotionservice: PromotionProvider,
     private leaderservice: LeaderProvider,
-    @Inject('BaseURL') private BaseURL,
-		private asCtrl: ActionSheetController
+    @Inject('BaseURL') private BaseURL
 	) { }
 
   ngOnInit() {
@@ -40,35 +39,5 @@ export class HomePage implements OnInit {
         errmess => this.leaderErrMess = <any>errmess );
 
   }
-	
-	
-	openActionSheet() {
-		const actionSheet = this.asCtrl.create({
-			title: 'Action Sheet',
-			buttons: 
-			[
-				{
-					text: 'Add to Favorites',
-					role: 'destructive',
-					handler: () => {
-						console.log('Add Favorites clicked');
-					}
-				},
-				{
-					text: 'Add Comment',
-					handler: () => {
-						console.log('Add Comment clicked');
-					}
-				},
-				{
-					text: 'Cancel',
-					handler: () => {
-						console.log('Cancel clicked');
-					}
-				}
-			]
-		});
-		actionSheet.present();
-	}
 
 }

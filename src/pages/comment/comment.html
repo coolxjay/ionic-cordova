@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <ion-list>
+     	<ion-item>
+				<ion-label fixed>Name</ion-label>
+				<ion-input type="text" value="" formControlName="author"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label>Rating</ion-label>
+				<ion-range min="1" max="5" step="1" snaps="true" formControlName="rating" color="danger">
+					<ion-icon range-left small color="danger"></ion-icon>
+					<ion-icon range-right color="danger"></ion-icon>
+				</ion-range>
+			</ion-item>
+			<ion-item>
+				<ion-label>
+					Comment
+				</ion-label>
+				<ion-textarea formControlName="comment">
+					
+				</ion-textarea>
+			</ion-item>
+		</ion-list>
+        
+      <button ion-button type="submit" [disabled]="!commentForm.valid">Submit</button>
+    </form>
+</ion-content>
